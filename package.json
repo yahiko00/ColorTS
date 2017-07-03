@@ -1,8 +1,8 @@
 {
-  "name": "ts-module",
+  "name": "color-ts",
   "version": "0.1.0",
-  "description": "Module boiler plate using TypeScript, Gulp, Uglify and Tape",
-  "main": "module.js",
+  "description": "Color manipulations with TypeScript",
+  "main": "color.js",
   "scripts": {
     "build": "gulp minify",
     "clean": "gulp clean",
