@@ -1,4 +1,5 @@
 *.map
+!color.js.map
 *.log
 debug/
 node_modules/
