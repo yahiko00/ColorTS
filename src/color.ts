@@ -2,6 +2,8 @@
 
 namespace Color {
     export type Color = [number, number, number];
+    export const enum RGB { R, G, B };
+    export const enum HSL { H, S, L };
 
     /**
      * Converts an RGB color value to HSL. Conversion formula
@@ -13,9 +15,9 @@ namespace Color {
      * @return  Array           The HSL representation
     */
     export function rgbToHsl(rgb: Color): Color {
-        let r = rgb[0] / 255;
-        let g = rgb[1] / 255;
-        let b = rgb[2] / 255;
+        let r = rgb[RGB.R] / 255;
+        let g = rgb[RGB.G] / 255;
+        let b = rgb[RGB.B] / 255;
 
         let max = Math.max(r, g, b);
         let min = Math.min(r, g, b);
@@ -51,9 +53,9 @@ namespace Color {
      * @return  Array           The RGB representation
     */
     export function hslToRgb(hsl: Color): Color {
-        let h = hsl[0];
-        let s = hsl[1];
-        let l = hsl[2];
+        let h = hsl[HSL.H];
+        let s = hsl[HSL.S];
+        let l = hsl[HSL.L];
         let r = 0;
         let g = 0;
         let b = 0;
@@ -78,7 +80,7 @@ namespace Color {
 
 
     export function rgbToNumber(rgb: Color): number {
-        return rgb[0] << 16 + rgb[1] << 8 + rgb[2];
+        return rgb[RGB.R] << 16 + rgb[RGB.G] << 8 + rgb[RGB.B];
     } // rgbToNumber
 
 
