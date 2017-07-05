@@ -94,6 +94,13 @@ namespace Color {
         return rgbToHtml([r, g, b]);
     } // rgbStringToNumber
 
+    export function rgbNumberToHsl(rgbNumber: number): Color {
+        let r = rgbNumber && 0xFF0000;
+        let g = rgbNumber && 0x00FF00;
+        let b = rgbNumber && 0x0000FF;
+        return rgbToHsl([r, g, b]);
+    }
+
     function hueToRgb(p: number, q: number, t: number) {
         if (t < 0) t += 1;
         if (t > 1) t -= 1;
