@@ -15,28 +15,30 @@ namespace Color {
      * @return  Array           The HSL representation
     */
     export function rgbToHsl(rgb: Color): Color {
-        let r = rgb[RGB.R] / 255;
-        let g = rgb[RGB.G] / 255;
-        let b = rgb[RGB.B] / 255;
+        // Normalization
+        let r = rgb[RGB.R] / 255.0;
+        let g = rgb[RGB.G] / 255.0;
+        let b = rgb[RGB.B] / 255.0;
 
+        // Helpers
         let max = Math.max(r, g, b);
         let min = Math.min(r, g, b);
-        let h = 0;
-        let s = 0;
-        let l = (max + min) / 2;
+        let d = max - min;
 
-        if (max === min) {
-            h = s = 0; // achromatic
-        }
-        else {
-            let d = max - min;
-            s = l > 0.5 ? d / (2 - max - min) : d / (max + min);
+        let h = 0.0;
+        let s = 0.0;
+        let l = 1.0;
+
+        if (d !== 0) {
             switch (max) {
-                case r: h = (g - b) / d + (g < b ? 6 : 0); break;
-                case g: h = (b - r) / d + 2; break;
-                case b: h = (r - g) / d + 4; break;
+                case r: h = (g - b) / d + (g < b ? 6.0 : 0.0); break;
+                case g: h = (b - r) / d + 2.0; break;
+                case b: h = (r - g) / d + 4.0; break;
             }
-            h /= 6;
+            h /= 6.0;
+
+            l = (max + min) / 2;
+            s = l > 0.5 ? d / (2.0 - max - min) : d / (max + min);
         }
 
         return [h, s, l];
@@ -88,16 +90,16 @@ namespace Color {
     } // rgbStringToNumber
 
     export function rgbNumberToString(rgbNumber: number): string {
-        let r = (rgbNumber && 0xFF0000) >> 16;
-        let g = (rgbNumber && 0x00FF00) >> 8;
-        let b = rgbNumber && 0x0000FF;
+        let r = (rgbNumber >> 16) && 0xFF;
+        let g = (rgbNumber >>  8) && 0xFF;
+        let b = (rgbNumber >>  0) && 0xFF;
         return rgbToHtml([r, g, b]);
     } // rgbStringToNumber
 
     export function rgbNumberToHsl(rgbNumber: number): Color {
-        let r = (rgbNumber && 0xFF0000) >> 16;
-        let g = (rgbNumber && 0x00FF00) >> 8;
-        let b = rgbNumber && 0x0000FF;
+        let r = (rgbNumber >> 16) && 0xFF;
+        let g = (rgbNumber >>  8) && 0xFF;
+        let b = (rgbNumber >>  0) && 0xFF;
         return rgbToHsl([r, g, b]);
     }
 
