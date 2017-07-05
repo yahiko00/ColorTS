@@ -90,16 +90,16 @@ namespace Color {
     } // rgbStringToNumber
 
     export function rgbNumberToString(rgbNumber: number): string {
-        let r = (rgbNumber >> 16) && 0xFF;
-        let g = (rgbNumber >>  8) && 0xFF;
-        let b = (rgbNumber >>  0) && 0xFF;
+        let r = (rgbNumber >> 16) & 0xFF;
+        let g = (rgbNumber >>  8) & 0xFF;
+        let b = (rgbNumber >>  0) & 0xFF;
         return rgbToHtml([r, g, b]);
     } // rgbStringToNumber
 
     export function rgbNumberToHsl(rgbNumber: number): Color {
-        let r = (rgbNumber >> 16) && 0xFF;
-        let g = (rgbNumber >>  8) && 0xFF;
-        let b = (rgbNumber >>  0) && 0xFF;
+        let r = (rgbNumber >> 16) & 0xFF;
+        let g = (rgbNumber >>  8) & 0xFF;
+        let b = (rgbNumber >>  0) & 0xFF;
         return rgbToHsl([r, g, b]);
     }
 
