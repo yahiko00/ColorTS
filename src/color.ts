@@ -75,7 +75,7 @@ namespace Color {
 
 
     export function rgbToHtml(rgb: Color): string {
-        return `#${pad(Math.round(rgb[0]).toString(16), 2)}${pad(Math.round(rgb[1]).toString(16), 2)}${pad(Math.round(rgb[2]).toString(16), 2)}`;
+        return `#${pad(Math.round(rgb[RGB.B]).toString(16), 2)}${pad(Math.round(rgb[RGB.G]).toString(16), 2)}${pad(Math.round(rgb[RGB.B]).toString(16), 2)}`;
     } // rgbToHtml
 
 
@@ -83,6 +83,16 @@ namespace Color {
         return rgb[RGB.R] << 16 + rgb[RGB.G] << 8 + rgb[RGB.B];
     } // rgbToNumber
 
+    export function rgbStringToNumber(rgbString: string): number {
+        return parseInt("0x" + rgbString.substr(1, 6));
+    } // rgbStringToNumber
+
+    export function rgbNumberToString(rgbNumber: number): string {
+        let r = rgbNumber && 0xFF0000;
+        let g = rgbNumber && 0x00FF00;
+        let b = rgbNumber && 0x0000FF;
+        return rgbToHtml([r, g, b]);
+    } // rgbStringToNumber
 
     function hueToRgb(p: number, q: number, t: number) {
         if (t < 0) t += 1;

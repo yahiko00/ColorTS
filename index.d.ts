@@ -14,5 +14,7 @@ declare namespace Color {
     function hslToRgb(hsl: Color): Color;
     function rgbToHtml(rgb: Color): string;
     function rgbToNumber(rgb: Color): number;
+    function rgbStringToNumber(rgbString: string): number;
+    function rgbNumberToString(rgbNumber: number): string;
 }
 export = Color;
