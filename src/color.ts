@@ -88,15 +88,15 @@ namespace Color {
     } // rgbStringToNumber
 
     export function rgbNumberToString(rgbNumber: number): string {
-        let r = rgbNumber && 0xFF0000;
-        let g = rgbNumber && 0x00FF00;
+        let r = (rgbNumber && 0xFF0000) >> 16;
+        let g = (rgbNumber && 0x00FF00) >> 8;
         let b = rgbNumber && 0x0000FF;
         return rgbToHtml([r, g, b]);
     } // rgbStringToNumber
 
     export function rgbNumberToHsl(rgbNumber: number): Color {
-        let r = rgbNumber && 0xFF0000;
-        let g = rgbNumber && 0x00FF00;
+        let r = (rgbNumber && 0xFF0000) >> 16;
+        let g = (rgbNumber && 0x00FF00) >> 8;
         let b = rgbNumber && 0x0000FF;
         return rgbToHsl([r, g, b]);
     }
