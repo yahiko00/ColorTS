@@ -1,7 +1,7 @@
 {
   "name": "color-ts",
-  "version": "0.1.0",
-  "description": "Color manipulations with TypeScript",
+  "version": "0.2.0",
+  "description": "Color manipulations with TypeScript / JavaScript",
   "main": "color.js",
   "scripts": {
     "build": "gulp minify",
