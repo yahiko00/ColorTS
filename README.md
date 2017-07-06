@@ -1,4 +1,4 @@
-# TS Module #
+# ColorTS #
 
 Color conversion library in **TypeScript**.
 
