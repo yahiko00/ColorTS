@@ -1,8 +1,12 @@
 {
   "name": "color-ts",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "Color manipulations with TypeScript / JavaScript",
   "main": "color.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yahiko00/ColorTS.git"
+  },
   "scripts": {
     "build": "gulp minify",
     "clean": "gulp clean",
