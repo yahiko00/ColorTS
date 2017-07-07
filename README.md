@@ -1,31 +1,52 @@
 # ColorTS #
 
-Color conversion library in **TypeScript**.
-
-
-Main dependencies:
-
-* **Linter**: [TSLint](https://github.com/palantir/tslint)
-* **Task Runner**: [Gulp](https://github.com/gulpjs/gulp)
-* **Code Compressor**: [Uglify](https://github.com/mishoo/UglifyJS2)
-* **Unit Test Runner**: [Tape](https://github.com/substack/tape)
+Color conversion library for **JavaScript** / **TypeScript**.
 
 
 ## API ##
 
-cf. the TypeScript declaration file _index.d.ts_.
+**RGB** colors can be encoded into an array of three integers from 0 to 255.
+**HSL** colors can be encoded into an array of three floats from 0.0 to 1.0.
+
+* Convert an array encoding a RGB color to another array encoding a HSL color:
+
+    function rgbToHsl(rgb: Color): Color;
+
+* Convert an array encoding a HSL color to another array encoding a RGB color:
+
+    function hslToRgb(hsl: Color): Color;
+
+* Convert an array encoding a RGB color to a HTML string begining with #:
+
+    function rgbToHtml(rgb: Color): string;
+
+* Convert an array encoding a RGB color to a number:
+
+    function rgbToNumber(rgb: Color): number;
+
+* Convert a HTML string encoding RGB color to a number:
+
+    function rgbStringToNumber(rgbString: string): number;
+
+* Convert a number encoding a RGB color to a HTML string:
+
+    function rgbNumberToString(rgbNumber: number): string;
+
+* Convert a number encording a RGB color to an array encoding a HSL color:
+
+    function rgbNumberToHsl(rgbNumber: number): Color;
+
 
 ## Installation ##
 
-The TypeScript compiler and TSLint should be installed globally.
-
-	$> git clone https://github.com/yahiko00/TSModule.git <new folder>
-	$> cd <new folder>
-	$> git init
-	$> npm install
+	$> npm install colors-ts
 
 
 ## Build ##
+
+You need first to install all dependencies:
+
+	$> npm install
 
 Project settings are defined in `package.json`, `settings` section. Inside this section, set `debug` to `true` to debug the project with source maps, or set `debug` to `false` to build the project in the release mode.
 
