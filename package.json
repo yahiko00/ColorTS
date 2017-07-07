@@ -1,6 +1,6 @@
 {
   "name": "color-ts",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "description": "Color manipulations with TypeScript / JavaScript",
   "main": "color.js",
   "repository": {
