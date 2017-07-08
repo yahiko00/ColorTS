@@ -77,9 +77,11 @@ namespace Color {
 
 
     export function rgbToHtml(rgb: Color): string {
-        return `#${pad(Math.round(rgb[RGB.B]).toString(16), 2)}${pad(Math.round(rgb[RGB.G]).toString(16), 2)}${pad(Math.round(rgb[RGB.B]).toString(16), 2)}`;
+        let r = pad(Math.round(rgb[RGB.R]).toString(16), 2);
+        let g = pad(Math.round(rgb[RGB.G]).toString(16), 2);
+        let b = pad(Math.round(rgb[RGB.B]).toString(16), 2);
+        return "#" + r + g + b;
     } // rgbToHtml
-
 
     export function rgbToNumber(rgb: Color): number {
         return rgb[RGB.R] << 16 + rgb[RGB.G] << 8 + rgb[RGB.B];
@@ -89,18 +91,19 @@ namespace Color {
         return parseInt("0x" + rgbString.substr(1, 6));
     } // rgbStringToNumber
 
+    export function rgbNumberToRgb(rgbNumber: number): Color {
+        let b = rgbNumber & 0xff; rgbNumber >>= 8;
+        let g = rgbNumber & 0xff; rgbNumber >>= 8;
+        let r = rgbNumber & 0xff;
+        return [r, g, b];
+    } // rgbNumberToRgb
+
     export function rgbNumberToString(rgbNumber: number): string {
-        let r = (rgbNumber >> 16) & 0xFF;
-        let g = (rgbNumber >>  8) & 0xFF;
-        let b = (rgbNumber >>  0) & 0xFF;
-        return rgbToHtml([r, g, b]);
+        return rgbToHtml(rgbNumberToRgb(rgbNumber));
     } // rgbStringToNumber
 
     export function rgbNumberToHsl(rgbNumber: number): Color {
-        let r = (rgbNumber >> 16) & 0xFF;
-        let g = (rgbNumber >>  8) & 0xFF;
-        let b = (rgbNumber >>  0) & 0xFF;
-        return rgbToHsl([r, g, b]);
+        return rgbToHsl(rgbNumberToRgb(rgbNumber));
     }
 
     function hueToRgb(p: number, q: number, t: number) {

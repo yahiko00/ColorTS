@@ -10,31 +10,35 @@ Color conversion library for **JavaScript** / **TypeScript**.
 
 * Convert an array encoding a RGB color to another array encoding a HSL color:
 
-    function rgbToHsl(rgb: Color): Color;
+    **rgbToHsl**(rgb: Color): Color
 
 * Convert an array encoding a HSL color to another array encoding a RGB color:
 
-    function hslToRgb(hsl: Color): Color;
+    **hslToRgb**(hsl: Color): Color
 
 * Convert an array encoding a RGB color to a HTML string begining with #:
 
-    function rgbToHtml(rgb: Color): string;
+    **rgbToHtml**(rgb: Color): string
 
 * Convert an array encoding a RGB color to a number:
 
-    function rgbToNumber(rgb: Color): number;
+    **rgbToNumber**(rgb: Color): number
+
+* Convert a number encoding a RGB color to an array encodiing the same RGB color:
+
+    **rgbNumberToRgb**(rgbNumber: number): Color
 
 * Convert a HTML string encoding RGB color to a number:
 
-    function rgbStringToNumber(rgbString: string): number;
+    **rgbStringToNumber**(rgbString: string): number
 
 * Convert a number encoding a RGB color to a HTML string:
 
-    function rgbNumberToString(rgbNumber: number): string;
+    **rgbNumberToString**(rgbNumber: number): string
 
 * Convert a number encording a RGB color to an array encoding a HSL color:
 
-    function rgbNumberToHsl(rgbNumber: number): Color;
+    **rgbNumberToHsl**(rgbNumber: number): Color
 
 
 ## Installation ##
