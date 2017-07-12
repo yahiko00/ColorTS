@@ -32,6 +32,10 @@ Color conversion library for **JavaScript** / **TypeScript**.
 
     **rgbStringToNumber**(rgbString: string): number
 
+* Convert a HTML string encoding RGB color to an array encoding a HSL color:
+
+    **rgbStringToHsl**(rgbString: string): Color
+
 * Convert a number encoding a RGB color to a HTML string:
 
     **rgbNumberToString**(rgbNumber: number): string

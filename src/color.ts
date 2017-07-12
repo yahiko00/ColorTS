@@ -91,6 +91,10 @@ namespace Color {
         return parseInt("0x" + rgbString.substr(1, 6));
     } // rgbStringToNumber
 
+    export function rgbStringToHsl(rgbString: string): Color {
+        return rgbNumberToHsl(parseInt("0x" + rgbString.substr(1, 6)));
+    } // rgbStringToHsl
+
     export function rgbNumberToRgb(rgbNumber: number): Color {
         let b = rgbNumber & 0xff; rgbNumber >>= 8;
         let g = rgbNumber & 0xff; rgbNumber >>= 8;
